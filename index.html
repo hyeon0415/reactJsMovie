@@ -7,24 +7,22 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-    const root = document.getElementById("root");
-    let counter = 0;
-    function countUp() {
-        counter = counter + 1;
-        render();
-    }
-    function render() {
-        ReactDOM.render(<Container/>, root);
-    }
-    function Container() {
+   
+    function App() {
+        // useState = counter 같은 데이터를 숫자형 데이터로 건내줄거고 
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter + 1);
+        };
         return (
         <div>
             <h3>Total clicks: {counter}</h3>
-            <button onClick={countUp}>Click me</button>
+            <button onClick={onClick}>Click me</button>
          </div>
+         
         );
     }
-    
-    render();
+    const root = document.getElementById("root");
+    ReactDOM.render(<App/>, root);
 </script>
 </html> 
