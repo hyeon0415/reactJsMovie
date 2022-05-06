@@ -9,15 +9,23 @@
 <script type="text/babel">
    
     function App() {
-        // useState = counter 같은 데이터를 숫자형 데이터로 건내줄거고 
-        const [counter, setCounter] = React.useState(0);
-        const onClick = () => {
-            setCounter(counter + 1);
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (event) => {
+            setMinutes(event.target.value);
         };
         return (
         <div>
-            <h3>Total clicks: {counter}</h3>
-            <button onClick={onClick}>Click me</button>
+            <h1 className="hi">Super Conveter</h1>
+            <label htmlFor="minutes">Minutes</label>
+            <input 
+            value={minutes}
+            id="minutes" 
+            placeholder="Minutes" 
+            type="number"
+            onChange = {onChange}/>
+            <h4>You want to convert {minutes}</h4>
+            <label htmlFor="hours">Hours</label>
+            <input id="hours" placeholder="Hours" type="number"/>
          </div>
          
         );
